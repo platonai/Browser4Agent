@@ -21,6 +21,9 @@
 
     <groupId>ai.platon.pulsar</groupId>
     <artifactId>agent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <name>Browser4 Agent</name>
     <description>AI agent foundation</description>
 
@@ -213,49 +216,51 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- Internal Dependencies -->
-            <dependency>
-                <groupId>ai.platon.pulsar</groupId>
-                <artifactId>pulsar-common</artifactId>
-                <version>${pulsar.modules.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ai.platon.pulsar</groupId>
-                <artifactId>pulsar-plugins</artifactId>
-                <type>pom</type>
-                <version>${pulsar.modules.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ai.platon.pulsar</groupId>
-                <artifactId>pulsar-persist</artifactId>
-                <version>${pulsar.modules.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ai.platon.pulsar</groupId>
-                <artifactId>pulsar-skeleton</artifactId>
-                <version>${pulsar.modules.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ai.platon.pulsar</groupId>
-                <artifactId>pulsar-resources</artifactId>
-                <version>${pulsar.modules.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ai.platon.pulsar</groupId>
-                <artifactId>pulsar-resources</artifactId>
-                <type>test-jar</type>
-                <classifier>tests</classifier>
-                <scope>test</scope>
-                <version>${pulsar.modules.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>ai.platon.pulsar</groupId>
                 <artifactId>pulsar-bom</artifactId>
                 <version>${pulsar.modules.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
+
+            <!-- Internal Dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>ai.platon.pulsar</groupId>-->
+<!--                <artifactId>pulsar-common</artifactId>-->
+<!--                <version>${pulsar.modules.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>ai.platon.pulsar</groupId>-->
+<!--                <artifactId>pulsar-plugins</artifactId>-->
+<!--                <type>pom</type>-->
+<!--                <version>${pulsar.modules.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>ai.platon.pulsar</groupId>-->
+<!--                <artifactId>pulsar-persist</artifactId>-->
+<!--                <version>${pulsar.modules.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>ai.platon.pulsar</groupId>-->
+<!--                <artifactId>pulsar-skeleton</artifactId>-->
+<!--                <version>${pulsar.modules.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>ai.platon.pulsar</groupId>-->
+<!--                <artifactId>pulsar-resources</artifactId>-->
+<!--                <version>${pulsar.modules.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>ai.platon.pulsar</groupId>-->
+<!--                <artifactId>pulsar-resources</artifactId>-->
+<!--                <type>test-jar</type>-->
+<!--                <classifier>tests</classifier>-->
+<!--                <scope>test</scope>-->
+<!--                <version>${pulsar.modules.version}</version>-->
+<!--            </dependency>-->
 
         </dependencies>
     </dependencyManagement>
@@ -333,13 +338,6 @@
         <kotlin.version>${kotlinVersion}</kotlin.version>
         <maven.compiler.release>${javaVersion}</maven.compiler.release>
         <kotlin.compiler.jvmTarget>${javaVersion}</kotlin.compiler.jvmTarget>
-
-        <!-- Test execution control properties -->
-        <runITs>false</runITs>
-        <runE2ETests>false</runE2ETests>
-        <runSDKTests>false</runSDKTests>
-        <runCoreTests>false</runCoreTests>
-        <runRestTests>false</runRestTests>
 
         <!-- Default excludedGroups: exclude all non-Fast tests
              Includes both new taxonomy tags and legacy tags for backward compatibility:
