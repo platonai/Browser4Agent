@@ -100,7 +100,7 @@ class AgentShell constructor(
          * Whitelist of allowed commands and command patterns.
          * Only commands starting with these patterns are permitted.
          */
-        val ALLOWED_COMMANDS = setOf(
+        val ALLOWED_COMMANDS_BASIC = setOf(
             // Basic navigation and listing
             "ls", "pwd", "tree",
             // File viewing
@@ -120,6 +120,10 @@ class AgentShell constructor(
             // Environment
             "env", "printenv", "which", "type"
         )
+
+        val ALLOWED_COMMANDS_ALL = setOf<String>("*")
+
+        val ALLOWED_COMMANDS = ALLOWED_COMMANDS_ALL
     }
 
     private val logger = getLogger(this)
@@ -352,7 +356,7 @@ class AgentShell constructor(
      */
     private fun isCommandAllowed(command: String): Boolean {
         // Direct whitelist check - extractBaseCommand() already handles multi-word commands
-        return ALLOWED_COMMANDS.contains(command)
+        return ALLOWED_COMMANDS.contains("*") || ALLOWED_COMMANDS.contains(command)
     }
 
     private fun truncateOutput(output: String): String {
